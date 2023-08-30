@@ -1,0 +1,1 @@
+# seminar3_django_gb
