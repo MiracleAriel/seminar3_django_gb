@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Orders</title>
+</head>
+<body>
+    <h1>{{ customer.name }}'s Orders</h1>
+
+    <h2>Last 7 days</h2>
+    <ul>
+      {% for product in unique_products_week %}
+        <li>{{ product.name }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Last 30 days</h2>
+    <ul>
+      {% for product in unique_products_month %}
+        <li>{{ product.name }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Last 365 days</h2>
+    <ul>
+      {% for product in unique_products_year %}
+        <li>{{ product.name }}</li>
+      {% endfor %}
+    </ul>
+</body>
+</html>
