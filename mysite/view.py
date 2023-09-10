@@ -39,3 +39,17 @@ def customer_orders(request, customer_id):
     return render(request, 'customer_orders.html', context)
 
 path('customer_orders/<int:customer_id>/', customer_orders, name='customer_orders')
+
+
+from django.shortcuts import render, redirect
+from .forms import ProductForm
+
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('product_list')  # Replace 'product_list' with the URL for your product list page
+    else:
+        form = ProductForm()
+    return render(request, 'add_product.html', {'form': form})

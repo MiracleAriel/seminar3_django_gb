@@ -20,3 +20,11 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    # Other URL patterns
+    path('add_product/', views.add_product, name='add_product'),
+]
